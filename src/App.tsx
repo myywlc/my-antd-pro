@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 import logo from './logo.svg';
 import './App.css';
 import Demo from './demo'
@@ -20,6 +21,7 @@ function App() {
           Learn React
         </a>
         <Demo name={'lin'} />
+        <Button>Button</Button>
       </header>
     </div>
   );
