@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button, DatePicker } from 'antd';
-import logo from './logo.svg';
-import './App.css';
-import Demo from './demo'
+import React from "react";
+import { Button, DatePicker } from "antd";
+import logo from "./logo.svg";
+import "./App.css";
+import Demo from "./demo";
 
 function App() {
   return (
@@ -20,9 +20,9 @@ function App() {
         >
           Learn React
         </a>
-        <Demo name={'lin'} />
+        <Demo name={"lin"} />
         <Button>Button</Button>
-        <DatePicker/>
+        <DatePicker />
       </header>
     </div>
   );
