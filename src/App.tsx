@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, DatePicker } from 'antd';
 import logo from './logo.svg';
 import './App.css';
 import Demo from './demo'
@@ -22,6 +22,7 @@ function App() {
         </a>
         <Demo name={'lin'} />
         <Button>Button</Button>
+        <DatePicker/>
       </header>
     </div>
   );
