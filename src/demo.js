@@ -1,7 +1,8 @@
 import React from 'react';
+import style from './demo.module.less'
 
 export default (props) => {
   return (
-    <span>hello, {props.name}</span>
+    <span className={style.btn}>hello, {props.name}</span>
   )
 }
