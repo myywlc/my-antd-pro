@@ -385,7 +385,7 @@ module.exports = function(webpackEnv) {
                     },
                   ],
                   [
-                    require.resolve('babel-plugin-import'),
+                    'import',
                     {
                       libraryName: 'antd',
                       style: true,
