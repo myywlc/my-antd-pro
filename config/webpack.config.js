@@ -59,7 +59,9 @@ const swSrc = paths.swSrc;
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
+const lessRegex = /\.(less)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessModuleRegex = /\.module\.(less)$/;
 
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
@@ -410,6 +412,13 @@ module.exports = function (webpackEnv) {
                       },
                     },
                   ],
+                  [
+                    'import',
+                    {
+                      libraryName: 'antd',
+                      style: true,
+                    },
+                  ],
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
                     require.resolve('react-refresh/babel'),
@@ -523,6 +532,48 @@ module.exports = function (webpackEnv) {
                 },
                 'sass-loader'
               ),
+            },
+            {
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use: [
+                ...getStyleLoaders(
+                  {
+                    importLoaders: 2,
+                    sourceMap: isEnvProduction
+                      ? shouldUseSourceMap
+                      : isEnvDevelopment,
+                  },
+                ),
+                {
+                  options: {
+                    javascriptEnabled: true,
+                  },
+                  loader: 'less-loader',
+                },
+              ],
+              sideEffects: true,
+            },
+            {
+              test: lessModuleRegex,
+              use: [
+                ...getStyleLoaders(
+                  {
+                    importLoaders: 2,
+                    sourceMap: isEnvProduction
+                      ? shouldUseSourceMap
+                      : isEnvDevelopment,
+                    modules: true,
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
+                ),
+                {
+                  options: {
+                    javascriptEnabled: true,
+                  },
+                  loader: 'less-loader',
+                },
+              ],
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
