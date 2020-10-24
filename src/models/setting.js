@@ -1,12 +1,17 @@
 import { message } from 'antd';
-import defaultSettings from '../defaultSettings';
+
+const defaultSettings = {
+  navTheme: 'dark', // theme for nav menu
+  primaryColor: '#1890FF', // primary color of ant design
+  layout: 'sidemenu', // nav menu position: sidemenu or topmenu
+  contentWidth: 'Fluid', // layout of content: Fluid or Fixed, only works when layout is topmenu
+  fixedHeader: false, // sticky header
+  autoHideHeader: false, // auto hide header
+  fixSiderbar: false, // sticky siderbar
+}
 
 let lessNodesAppended;
 const updateTheme = primaryColor => {
-  // Don't compile less in production!
-  if (APP_TYPE !== 'site') {
-    return;
-  }
   // Determine if the component is remounted
   if (!primaryColor) {
     return;
@@ -66,6 +71,7 @@ const updateColorWeak = colorWeak => {
 export default {
   namespace: 'setting',
   state: defaultSettings,
+
   reducers: {
     getSetting(state) {
       const setting = {};

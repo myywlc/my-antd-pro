@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Menu, Icon } from 'antd';
-import Link from 'umi/link';
+import { Link } from 'react-router-dom';
 import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
 import pathToRegexp from 'path-to-regexp';

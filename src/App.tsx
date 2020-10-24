@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 // import Login from '../pages/login';
 import BasicLayout from './layouts/BasicLayout';
@@ -14,7 +14,7 @@ function App () {
           () => (
             <BasicLayout>
               <Switch>
-                <Route path='/admin/ui/home' component={TestPage} />
+                <Route path='/' component={TestPage} />
                 <Route component={NoPath} />
               </Switch>
             </BasicLayout>
