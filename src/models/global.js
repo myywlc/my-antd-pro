@@ -7,9 +7,17 @@ export default {
   state: {
     collapsed: false,
     notices: [],
+    num: 0,
   },
 
   effects: {
+    * add({ payload }) {
+      yield put({
+        type: 'global/addChangeNum',
+        payload,
+      });
+    },
+
     * change({ payload }) {
       yield put({
         type: 'global/changeLayoutCollapsed',
@@ -42,6 +50,14 @@ export default {
   },
 
   reducers: {
+    addChangeNum(state, { payload }) {
+      console.log(state, 'state');
+      console.log(payload, 'payload');
+      return {
+        ...state,
+        num: payload,
+      };
+    },
     changeLayoutCollapsed(state, { payload }) {
       return {
         ...state,
