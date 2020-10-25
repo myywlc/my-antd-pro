@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-// import Login from '../pages/login';
 import BasicLayout from './layouts/BasicLayout';
-import TestPage from './pages/TestPage';
 import NoPath from './pages/404';
 import Analysis from './pages/Dashboard/Analysis';
 import Success from './pages/Result/Success';
