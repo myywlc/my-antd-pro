@@ -1,4 +1,5 @@
 import { query as queryUsers, queryCurrent } from '@/services/user';
+import { call, put } from 'redux-saga/effects';
 
 export default {
   namespace: 'user',
@@ -9,14 +10,14 @@ export default {
   },
 
   effects: {
-    *fetch(_, { call, put }) {
+    *fetch(_) {
       const response = yield call(queryUsers);
       yield put({
         type: 'save',
         payload: response,
       });
     },
-    *fetchCurrent(_, { call, put }) {
+    *fetchCurrent(_) {
       const response = yield call(queryCurrent);
       yield put({
         type: 'saveCurrentUser',

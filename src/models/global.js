@@ -1,4 +1,5 @@
-// import { queryNotices } from '../services/api';
+import { queryNotices } from '../services/api';
+import { call, put } from 'redux-saga/effects';
 
 export default {
   namespace: 'global',
@@ -9,7 +10,14 @@ export default {
   },
 
   effects: {
-    *fetchNotices(_, { call, put }) {
+    * change({ payload }) {
+      yield put({
+        type: 'global/changeLayoutCollapsed',
+        payload,
+      });
+    },
+
+    * fetchNotices(_, { call, put }) {
       // const data = yield call(queryNotices);
       yield put({
         type: 'saveNotices',
@@ -20,7 +28,7 @@ export default {
         payload: 0,
       });
     },
-    *clearNotices({ payload }, { put, select }) {
+    * clearNotices({ payload }, { put, select }) {
       yield put({
         type: 'saveClearedNotices',
         payload,

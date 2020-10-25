@@ -3,10 +3,12 @@ import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects';
 
 import global from './models/global';
 import setting from './models/setting';
+import user from './models/user';
 
 const configList = [
   global,
   setting,
+  user,
 ];
 
 let reducerObj = {};

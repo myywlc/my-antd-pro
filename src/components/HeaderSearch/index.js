@@ -4,7 +4,7 @@ import { Input, Icon, AutoComplete } from 'antd';
 import classNames from 'classnames';
 import Debounce from 'lodash-decorators/debounce';
 import Bind from 'lodash-decorators/bind';
-import styles from './index.less';
+import styles from './index.module.less';
 
 export default class HeaderSearch extends PureComponent {
   static propTypes = {

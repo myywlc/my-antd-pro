@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import pathToRegexp from 'path-to-regexp';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import styles from './index.less';
+import styles from './index.module.less';
 import BaseMenu, { getMenuMatches } from './BaseMenu';
 import { urlToList } from '../_utils/pathTools';
 

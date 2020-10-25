@@ -5,7 +5,7 @@ import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
 import pathToRegexp from 'path-to-regexp';
 import { urlToList } from '../_utils/pathTools';
-import styles from './index.less';
+import styles from './index.module.less';
 
 const { SubMenu } = Menu;
 

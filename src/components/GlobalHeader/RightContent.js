@@ -4,7 +4,7 @@ import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 import NoticeIcon from '../NoticeIcon';
 import HeaderSearch from '../HeaderSearch';
-import styles from './index.less';
+import styles from './index.module.less';
 
 export default class GlobalHeaderRight extends PureComponent {
   getNoticeData() {

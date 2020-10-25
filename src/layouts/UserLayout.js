@@ -46,7 +46,6 @@ class UserLayout extends React.PureComponent {
   render() {
     const { children } = this.props;
     return (
-      // @TODO <DocumentTitle title={this.getPageTitle()}>
       <div className={styles.container}>
         <div className={styles.lang}>
           <SelectLang />

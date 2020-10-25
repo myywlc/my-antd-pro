@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // import router from 'umi/router';
 import GlobalHeader from '../components/GlobalHeader';
 import TopNavHeader from '../components/TopNavHeader';
-import styles from './Header.less';
+import styles from './Header.module.less';
 import Authorized from '../utils/Authorized';
 
 const { Header } = Layout;
@@ -154,7 +154,6 @@ class HeaderView extends PureComponent {
 export default connect(({ user, global, setting, loading }) => ({
   currentUser: user.currentUser,
   collapsed: global.collapsed,
-  fetchingNotices: loading.effects['global/fetchNotices'],
   notices: global.notices,
   setting,
 }))(HeaderView);

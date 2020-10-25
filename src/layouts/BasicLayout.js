@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from 'antd';
-import DocumentTitle from 'react-document-title';
 import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
 import { connect } from 'react-redux';
@@ -19,7 +18,8 @@ import Exception403 from '../pages/Exception/403';
 const { Content } = Layout;
 
 // Conversion router to menu.
-function formatter(data, parentAuthority, parentName) {
+function formatter(data = [], parentAuthority, parentName) {
+  console.log(data, 'data');
   return data
     .map(item => {
       if (!item.name || !item.path) {
@@ -80,7 +80,6 @@ const query = {
 class BasicLayout extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.getPageTitle = memoizeOne(this.getPageTitle);
     this.getBreadcrumbNameMap = memoizeOne(this.getBreadcrumbNameMap, isEqual);
     this.breadcrumbNameMap = this.getBreadcrumbNameMap();
     this.matchParamsPath = memoizeOne(this.matchParamsPath, isEqual);
@@ -172,16 +171,6 @@ class BasicLayout extends React.PureComponent {
     return this.breadcrumbNameMap[pathKey];
   };
 
-  getPageTitle = pathname => {
-    const currRouterData = this.matchParamsPath(pathname);
-
-    if (!currRouterData) {
-      return 'Ant Design Pro';
-    }
-    const message = "Dashboard";
-    return `${message} - Ant Design Pro`;
-  };
-
   getLayoutStyle = () => {
     const { isMobile } = this.state;
     const { fixSiderbar, collapsed, layout } = this.props;
@@ -259,7 +248,6 @@ class BasicLayout extends React.PureComponent {
     );
     return (
       <React.Fragment>
-        <DocumentTitle title={this.getPageTitle(pathname)}>
           <ContainerQuery query={query}>
             {params => (
               <Context.Provider value={this.getContext()}>
@@ -267,7 +255,6 @@ class BasicLayout extends React.PureComponent {
               </Context.Provider>
             )}
           </ContainerQuery>
-        </DocumentTitle>
       </React.Fragment>
     );
   }
